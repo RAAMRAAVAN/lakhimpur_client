@@ -6,10 +6,12 @@ import { IoIosCall } from "react-icons/io";
 import { RiContactsLine } from "react-icons/ri";
 import { ExpandMore } from "@mui/icons-material";
 import { NavElements } from "../Global";
+import { useSelector } from "react-redux";
+import { selectHospitalDetails } from "@/redux/features/hospitalDetailSlice";
 
 const ContactUsDropdown = () => {
   const [open, setOpen] = useState(false);
-
+  const HospitalDetails = useSelector(selectHospitalDetails);
   return (
     <Box
       sx={{ display: "inline-block", position: 'relative', zIndex:'10001' }}
@@ -30,13 +32,13 @@ const ContactUsDropdown = () => {
         <Box padding={1} sx={{ cursor: 'pointer', borderTop: '1px lightgray solid', '&:hover': { backgroundColor: 'lightgray', display: 'flex', width: '100%' } }}>
           <Box onClick={()=>setOpen(false)} display='flex'><IoIosCall  size={25} color="gray" />
             <Typography component="a"
-              href={`tel:${"6026332180" || ""}`} sx={{ cursor: "pointer" }} color="#454545" marginLeft={1}>6026332180</Typography>
+              href={`tel:${HospitalDetails.phone2 || ""}`} sx={{ cursor: "pointer" }} color="#454545" marginLeft={1}>{HospitalDetails.phone2}</Typography>
           </Box>
         </Box>
         <Box padding={1} sx={{ cursor: 'pointer', borderTop: '1px lightgray solid', '&:hover': { backgroundColor: 'lightgray', display: 'flex', width: '100%' } }}>
           <Box onClick={()=>setOpen(false)} display='flex'><IoIosCall  size={25} color="gray" />
             <Typography component="a"
-              href={`tel:18003454325`} sx={{ cursor: "pointer" }} color="#454545" marginLeft={1}>18003454325</Typography>
+              href={HospitalDetails.phone} sx={{ cursor: "pointer" }} color="#454545" marginLeft={1}>{HospitalDetails.phone}</Typography>
           </Box>
         </Box>
         <Box padding={1} sx={{ cursor: 'pointer', borderTop: '1px lightgray solid', '&:hover': { backgroundColor: 'lightgray', display: 'flex', width: '100%' } }}>

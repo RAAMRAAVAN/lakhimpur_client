@@ -8,16 +8,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { memo } from "react";
-import { FetchHospitalDetails2} from '../../lib/fetchData'
+import { useSelector } from "react-redux";
+import { selectHospitalDetails } from "@/redux/features/hospitalDetailSlice";
 
 function convertToArray(str) {
   return str.split(',').map(item => item.trim());
 }
 
 const ImageSlider = ({ id, Images = [] }) => {
-  const hospitalData = FetchHospitalDetails2
+  const hospitalData = useSelector(selectHospitalDetails)
   const imageArray = convertToArray(Images);
-  console.log("Images=",imageArray);
+  // console.log("Images=",imageArray);
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -75,7 +76,7 @@ const ImageSlider = ({ id, Images = [] }) => {
           imageArray.map((image, index) => (
             <SwiperSlide key={index} style={{ width: "100%" }}>
               <ExportedImage
-                src={`${hospitalData.domain}uploads/newsEvents/${image}`}
+                src={`${hospitalData.location}uploads/newsEvents/${image}`}
                 alt="Image Slide"
                 width={530}
                 height={280}

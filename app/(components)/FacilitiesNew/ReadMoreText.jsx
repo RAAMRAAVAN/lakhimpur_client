@@ -3,7 +3,7 @@ import { Button, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
 const ReadMoreText = ({ text, expand, FID,facilityId, lineClamp = 3 }) => {
-    console.log("expand=", facilityId, expand);
+    // console.log("expand=", facilityId, expand);
     const [expanded, setExpanded] = useState(expand);
     const [isTruncated, setIsTruncated] = useState(false);
     const [readMore, setReadMore] = useState(!expand);

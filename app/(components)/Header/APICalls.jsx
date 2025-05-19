@@ -15,7 +15,7 @@ const APICalls = (props) => {
             dispatch(setFacilities(Facilities)); // Store doctors in Redux
           }
         
-        console.log("Setting Data");
+        // console.log("Setting Data");
         // dispatch(setHospitalDetails(HospitalDetails));
       }, []);
     return(<></>);

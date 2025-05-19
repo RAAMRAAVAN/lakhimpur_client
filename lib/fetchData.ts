@@ -49,74 +49,6 @@ export async function ImageSliderData() {
     return [];
   }
 }
-export const ImageSliderData2 = [
-  {
-    "_id": "6711",
-    "id": 1,
-    "HospitalID": 1,
-    "name": "Slider Image -1",
-    "path": "/Lakhimpur/slider/1.jpg",
-    "active": "Y"
-  },
-  {
-    "_id": "6712",
-    "id": 2,
-    "HospitalID": 1,
-    "name": "Slider Image 0",
-    "path": "/Lakhimpur/slider/2.jpg",
-    "active": "Y"
-  },
-  {
-    "_id": "6713",
-    "id": 3,
-    "HospitalID": 1,
-    "name": "Slider Image 1",
-    "path": "/Lakhimpur/slider/3.jpg",
-    "active": "Y"
-  },
-  {
-    "_id": "6714",
-    "id": 4,
-    "HospitalID": 1,
-    "name": "Slider Image 2",
-    "path": "/Lakhimpur/slider/4.jpg",
-    "active": "Y"
-  },
-  {
-    "_id": "6715",
-    "id": 5,
-    "HospitalID": 1,
-    "name": "Slider Image 4",
-    "path": "/Lakhimpur/slider/5.jpg",
-    "active": "Y"
-  },
-  {
-    "_id": "6716",
-    "id": 6,
-    "HospitalID": 1,
-    "name": "Slider Image 5",
-    "path": "/Lakhimpur/slider/6.jpg",
-    "active": "Y"
-  },
-  {
-    "_id": "6717",
-    "id": 7,
-    "HospitalID": 1,
-    "name": "Slider Image 6",
-    "path": "/Lakhimpur/slider/7.jpg",
-    "active": "Y"
-  }
-  ,
-  {
-    "_id": "6718",
-    "id": 8,
-    "HospitalID": 1,
-    "name": "Slider Image 8",
-    "path": "/Lakhimpur/slider/8.jpg",
-    "active": "Y"
-  }
-]
-
 // ✅ Fetch Doctors
 export async function fetchDoctors2() {
   // ⚠️ Bypass SSL check (only for local development)
@@ -405,146 +337,15 @@ export async function FetchHospitalsData2() {
     });
 
     const data = await response.json();
-    return data || [];
+
+    // Filter out the hospital with id = 1
+    const filteredData = (data || []).filter((hospital: { id: number; }) => hospital.id !== HospitalID);
+    return filteredData;
   } catch (error) {
     console.error("Failed to fetch doctors:", error);
     return [];
   }
 }
-export const FetchHospitalsData = [
-  {
-    "_id": "67de3bd06487342f61ecdfe1",
-    "id": 1,
-    "name": "STATE CANCER INSTITUTE GUWAHATI",
-    "short_name": "SCI",
-    "domain": "https://cancercareinstituteguwahati.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.1347530850453!2d91.76288917486926!3d26.159740542044343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a590073ceb703%3A0x13cae1a490750ee1!2sState%20Cancer%20Institute%2CGuwahati%20Assam!5e0!3m2!1sen!2sin!4v1741872609450!5m2!1sen!2sin",
-    "TollFreeNumber": "+91 9085202020",
-    "WhatsAppNumber": "94356 47725",
-    "Address": "3rd Floor, V.K Trade Centre, Opp DownTown Hospital, G S Road, Guwahati, Assam PIN–781022",
-    "Facebook": "https://www.facebook.com/CancerHospitalGMCH/",
-    "Twitter": "https://x.com/gmcsci",
-    "Insta": "https://www.instagram.com/explore/locations/1242067485951109/assam-state-cancer-institute/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/SCI/logo/logo.png"
-  },
-  {
-    "_id": "67de3bd06487342f61ecdfe3",
-    "id": 3,
-    "name": "BARPETA CANCER CENTRE",
-    "short_name": "Barpeta",
-    "domain": "https://barpetacancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7152.158202780259!2d90.97631346977539!3d26.32393799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37599dfa07ce4509%3A0xe74899e5b2d34f24!2sBarpeta%20Cancer%20Centre!5e0!3m2!1sen!2sin!4v1659002675390!5m2!1sen!2sin",
-    "TollFreeNumber": "+91 6026332174",
-    "WhatsAppNumber": "94356 47725",
-    "Address": "FAAMCH Campus ,Jania Road , Joti Gaon , Barpeta(Assam). Pin 781301 .",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Barpeta/logo/logo.png"
-  },
-  {
-    "_id": "67de3bd06487342f61ecdfe4",
-    "id": 4,
-    "name": "DARRANG CANCER CENTRE",
-    "assamese_name": "দৰং কেন্সাৰ চেণ্টাৰ",
-    "short_name": "Darrang",
-    "domain": "https://darrangcancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28580.924975775728!2d92.038973!3d26.435878!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375b1d56bc8e4d1f%3A0xdad0a9647179e4ff!2sAssam%20cancer%20care%2C%20Darrang%2C%20Mangaldoi!5e0!3m2!1sen!2sin!4v1742616576781!5m2!1sen!2sin",
-    "TollFreeNumber": "18003454325",
-    "WhatsAppNumber": "94356 47725",
-    "PhoneNumber": '6026332180',
-    "Address": "Darrang Cancer Centre, Behind Mangaldai Civil Hospital, Baghpari Chapori, Mangaldai, Darrang, Assam, 784125",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Darrang/logo/logo.png"
-  },
-  {
-    "_id": "67de3bd06487342f61ecdfe9",
-    "id": 9,
-    "name": "JORHAT CANCER CENTRE",
-    "assamese_name": "যোৰহাট কেন্সাৰ চেণ্টাৰ",
-    "short_name": "Jorhat",
-    "domain": "https://jorhatcancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d228034.79786141418!2d94.197948!3d26.742981!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c31f3536f399%3A0x653eb08956568d34!2sJorhat%20Cancer%20Centre%20ACCF!5e0!3m2!1sen!2sin!4v1742616856683!5m2!1sen!2sin",
-    "TollFreeNumber": "18003454325",
-    "WhatsAppNumber": "94356 47725",
-    "PhoneNumber": "6026332209",
-    "Address": "Jorhat Cancer Centre ACCF, Kushal Nagar, Tarajan, Jorhat, Assam 785001",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Jorhat/logo/logo.png"
-  },
-  {
-    "_id": "67de3bd06487342f61ecdfe8",
-    "id": 8,
-    "name": "DIBRUGARH CANCER CENTRE",
-    "short_name": "Dibrugarh",
-    "domain": "https://dibrugarhcancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14158.20432243162!2d94.946242!3d27.483232!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374099f9a770c52d%3A0xcecf8c7af5f57e89!2sDibrugarh%20Cancer%20Centre!5e0!3m2!1sen!2sin!4v1742616826161!5m2!1sen!2sin",
-    "TollFreeNumber": "91 6026332165",
-    "WhatsAppNumber": "94356 47725",
-    "Address": "Dibrugarh Cancer Centre, Near Namghar, Assam Medical College Campus, Dibrugarh, Assam, 786002.",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Dibrugarh/logo/logo.png"
-  },
-  {
-    "_id": "67de3bd06487342f61ecdfe6",
-    "id": 6,
-    "name": "KOKRAJHAR CANCER CENTRE",
-    "short_name": "Kokrajhar",
-    "domain": "https://kokrajharcancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1828739.9773294877!2d90.280884!3d26.463536!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37588b6b0e849949%3A0xd965f2e851130df7!2sKokrajhar%20Cancer%20Care%20Hospital!5e0!3m2!1sen!2sin!4v1742616785038!5m2!1sen!2sin",
-    "TollFreeNumber": 9395891501,
-    "WhatsAppNumber": "94356 47725",
-    "Address": "Kokrajhar Cancer Centre, Near Kokrajhar Medical College & Hospital , Besorgaon, P.O : Rangalikhata -II, District : Kokrajhar ,BTR, Assam, Pin:783370",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Kokrajhar/logo/logo.png"
-  },
-
-    {
-    "_id": "67de3bd06487342f61ecdfe5",
-    "id": 5,
-    "name": "TEZPUR CANCER CENTRE",
-    "assamese_name": "তেজপুৰ কেন্সাৰ চেণ্টাৰ",
-    "short_name": "Tezpur",
-    "domain": "https://tezpurcancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d912667.0492247979!2d92.662631!3d26.677103!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3744c5c3e215dd71%3A0x4d4a39d59d0d40cf!2sTezpur%20cancer%20centre%20ACCF!5e0!3m2!1sen!2sin!4v1742616748044!5m2!1sen!2sin",
-    "PhoneNumber": "6026332180",
-    "TollFreeNumber": "18003454325",
-    "WhatsAppNumber": "94356 47725",
-    "Address": "Tezpur Cancer Centre, Opposite Chandranath Sarma H.S School, Near Tezpur Medical College and Hospital, Geruabari,Bihaguri, Sonitpur, Assam, 784153",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Tezpur/logo/logo.png"
-  }
-
-  // {
-  //     "_id": "67de3bd06487342f61ecdfe7",
-  //     "id": 7,
-  //     "name": "SILCHAR CANCER CENTRE",
-  //      "short_name": "Silchar",
-  //     "WhatsAppNumber": "94356 47725",
-  //     "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-  //     "Twitter": "https://x.com/CareAssam",
-  //     "Insta": "https://www.instagram.com/careassam/",
-  //     "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-  //     "Logo": "/Silchar/logo/logo.png"
-  // },
-]
 
 export const FetchAboutUs = [
   {
@@ -595,7 +396,7 @@ export async function fetchNewsAndEvents2() {
     });
 
     const data = await response.json();
-    console.log('Trying to fetch news from barpeta server :', data);
+    // console.log('Trying to fetch news from barpeta server :', data);
     return data || [];
   } catch (error) {
     console.error("Failed to fetch doctors:", error);
@@ -608,34 +409,13 @@ export async function FetchHospitalDetails() {
   try {
     const response = await fetch(`https://accf-api.cancercareinstituteguwahati.org/api/get-hospital/${HospitalID}`);
     const data = await response.json();
-    console.log('Trying to fetch HospitalDetails:', data);
+    // console.log('Trying to fetch HospitalDetails:', data);
     return data || [];
   } catch (error) {
     console.error("Failed to fetch doctors:", error);
     return [];
   }
 }
-export const FetchHospitalDetails2 = {
-    "_id": "67de3bd06487342f61ecdfe2",
-    "id": 2,
-    "name": "LAKHIMPUR CANCER CENTRE",
-    "assamese_name": "লক্ষীমপুৰ কেন্সাৰ চেণ্টাৰ",
-    "short_name": "Lakhimpur",
-    "domain": "https://lakhimpurcancercentre.org/",
-    "Location": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14527113.716549069!2d94.09987!3d27.261234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374137719ce40f01%3A0x7100ad598a1ca96c!2sLakhimpur%20Cancer%20Centre!5e0!3m2!1sen!2sin!4v1741931783298!5m2!1sen!2sin",
-                            // https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2802.9361854775275!2d94.0762858!3d27.2698476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374137da4953ce8f%3A0x5209d20793d399bf!2sLAKHIMPUR%20CANCER%20CENTRE!5e1!3m2!1sen!2sin!4v1747637931838!5m2!1sen!2sin
-    
-    "PhoneNumber": "6026332180",
-    "TollFreeNumber": "18003454325",
-    "WhatsAppNumber": "",
-    "Address": "Lakhimpur Cancer Centre, Opposite St. Marrys High School, Nakari, Saboti, North Lakhimpur, Lakhimpur, Assam, 787001",
-    "Facebook": "https://www.facebook.com/AssamCancerCareFoundation/",
-    "Twitter": "https://x.com/CareAssam",
-    "Insta": "https://www.instagram.com/careassam/",
-    "LinkedIN": "https://www.linkedin.com/company/assam-cancer-care-foundation/",
-    "Logo": "/Lakhimpur/logo/logo.png"
-  }
-
 
 export const FetchPartners = [{
   "id": 1,

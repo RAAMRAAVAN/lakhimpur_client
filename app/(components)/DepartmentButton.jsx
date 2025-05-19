@@ -20,7 +20,7 @@ const DepartmentButton = () => {
     const [value, setValue] = useState(department || '');
     const selectDepartmentRef = useRef(null);
 
-    console.log("new dept=", departments);
+    // console.log("new dept=", departments);
     // Update `value` if URL query param changes
     useEffect(() => {
         if (department) {

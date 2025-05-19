@@ -1,5 +1,4 @@
 'use client';
-// import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,14 +7,12 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import { East } from '@mui/icons-material';
 import { CardActions } from '@mui/material';
-import { Font } from './Global';
 import { selectNewses } from "@/redux/features/newsSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Grid } from "@mui/material";
-import NewsCard from './NewsCard';
 import { setID } from "@/redux/features/newsSlice";
 import { useState } from 'react';
-import { FetchHospitalDetails2 } from '../../lib/fetchData';
+import { selectHospitalDetails } from '@/redux/features/hospitalDetailSlice';
 
 function convertToArray(str) {
   return str.split(',')[0];
@@ -23,12 +20,12 @@ function convertToArray(str) {
 
 export default function NewsLink() {
   const router = useRouter();
-  const hospitalData = FetchHospitalDetails2;
+  const hospitalData = useSelector(selectHospitalDetails)
   const [clicked, setClicked] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const news = useSelector(selectNewses);
   const dispatch = useDispatch();
-  console.log(selectedCard, clicked);
+  // console.log(selectedCard, clicked);
   return (
 
     <Grid container spacing={5} justifyContent="start" display='flex' sx={{ width: { md: '100%', sm: '100%' } }}>
@@ -97,7 +94,7 @@ export default function NewsLink() {
                     height: '175px',
                     width: '100%',
                   }}
-                  image={`${hospitalData.domain}uploads/newsEvents/${convertToArray(entry.newseventsimg)}`}
+                  image={`${hospitalData.location}uploads/newsEvents/${convertToArray(entry.newseventsimg)}`}
                   alt="green iguana"
                 />
               </Box>

@@ -58,7 +58,7 @@ export const MobileView = ({ mobileOpen, handleDrawerToggle, OurHospitals }) => 
                     <Collapse in={openHospitalDropdown} timeout="auto" unmountOnExit>
                       <List component="div" disablePadding>
                         {OurHospitals.map((hospital) => (
-                          <Link key={hospital.name} href={hospital.domain} passHref legacyBehavior>
+                          <Link key={hospital.name} href={hospital.location} passHref legacyBehavior>
                             <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
                               <ListItem component="div" sx={{ pl: 4 }}>
                                 <Typography variant="body2">{hospital.name}</Typography>

@@ -6,13 +6,13 @@ import AnimatedImages from "../(components)/Animation";
 import { HospitalName } from "@/lib/fetchData";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://darrangcancercentre.org/'),
+  metadataBase: new URL('https://lakhimpurcancercentre.org/'),
   title: `${HospitalName}`,
   description:
-    "South Asia's largest cancer care network by Assam Govt and Tata Trusts — delivering affordable, high-quality cancer treatment in Dibrugarh.",
+    "South Asia's largest cancer care network by Assam Govt and Tata Trusts — delivering affordable, high-quality cancer treatment in Lakhimpur.",
   keywords: [
     "Cancer Hospital",
-    "Best Cancer Hospital in Dibrugarh",
+    "Best Cancer Hospital in Lakhimpur",
     "Free Cancer Treatment Assam",
     "Cancer Care Northeast India",
     "Best Oncology Hospital",
@@ -23,26 +23,26 @@ export const metadata: Metadata = {
     icon: "/favicon.gif",
   },
   openGraph: {
-    title: "Cancer Care Institute Dibrugarh – Best Cancer Hospital in Northeast India",
+    title: "Cancer Care Institute Lakhimpur – Best Cancer Hospital in Northeast India",
     description:
-      "Leading cancer hospital in Assam backed by Tata Trusts and Government of Assam. Providing world-class oncology care and free cancer treatment in Dibrugarh.",
-    url: "https://darrangcancercentre.org/",
-    siteName: "DIBRUGARH CANCER CENTRE",
+      "Leading cancer hospital in Assam backed by Tata Trusts and Government of Assam. Providing world-class oncology care and free cancer treatment in Lakhimpur.",
+    url: "https://lakhimpurcancercentre.org/",
+    siteName: "LAKHIMPUR CANCER CENTRE",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "DIBRUGARH CANCER CENTRE",
+        alt: "LAKHIMPUR CANCER CENTRE",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DIBRUGARH CANCER CENTRE",
+    title: "LAKHIMPUR CANCER CENTRE",
     description:
-      "Get the best cancer treatment in Dibrugarh from South Asia's largest cancer care network, powered by Tata Trusts and Govt. of Assam.",
+      "Get the best cancer treatment in Lakhimpur from South Asia's largest cancer care network, powered by Tata Trusts and Govt. of Assam.",
     images: ["/og-image.jpg"],
     site: "https://x.com/gmcsci",
   },

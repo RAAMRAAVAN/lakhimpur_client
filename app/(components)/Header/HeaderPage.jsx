@@ -1,6 +1,6 @@
 'use client'
 import Header from './Header'
-import { fetchDoctors2, FetchFacilitiesData, FetchHospitalDetails, FetchHospitalsData, FetchHospitalsData2, fetchNewsAndEvents2, ImageSliderData } from "@/lib/fetchData";
+import { fetchDoctors2, FetchFacilitiesData, FetchHospitalDetails, FetchHospitalsData2, fetchNewsAndEvents2, ImageSliderData } from "@/lib/fetchData";
 import APICalls from './APICalls';
 import { setDoctors } from "@/redux/features/doctorSlice";
 import { useEffect, useState } from 'react';
@@ -11,7 +11,6 @@ import { setHospitals } from '@/redux/features/hospitalSlice';
 
 const HeaderPage = () => {
     const dispatch = useDispatch();
-    const OurHospitals = FetchHospitalsData
     const Facilities = FetchFacilitiesData;
     // const HospitalDetails = FetchHospitalDetails;
     const fetchDoctorDetails = async () => {
@@ -81,7 +80,7 @@ const HeaderPage = () => {
 
     return (<>
     <APICalls Facilities={Facilities}/>
-    <Header OurHospitals={OurHospitals} Facilities={Facilities}/>
+    <Header Facilities={Facilities}/>
     </>);
 }
 

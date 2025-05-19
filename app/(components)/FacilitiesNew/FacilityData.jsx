@@ -10,7 +10,7 @@ import { useMediaQuery } from '@mui/material';
 
 const Facilities = ({ expand, FID }) => {
   const facilities = useSelector(selectFacilities);
-  console.log("expand=", expand);
+  // console.log("expand=", expand);
   const isMd = useMediaQuery('(min-width: 768px)');
   useEffect(() => {
     if (typeof window !== "undefined") {
