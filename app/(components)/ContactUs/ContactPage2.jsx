@@ -158,7 +158,7 @@ const ContactPage = () => {
                             <Typography fontFamily='Montserrat,sans-serif' fontWeight='600' fontSize='20px' color="#454545">Talk to Us</Typography>
                         </Box>
                         <Box paddingX={3} paddingBottom={2} display='flex' component="a"
-                            href={`tel:6026332180`} sx={{ cursor: "pointer", '&:hover': { color: 'black' } }}>
+                            href={`tel:${HospitalDetails.phone2}`} sx={{ cursor: "pointer", '&:hover': { color: 'black' } }}>
                             <Box
                                 sx={{
                                     width: 70,
@@ -191,13 +191,13 @@ const ContactPage = () => {
                             <Box>
                                 <Typography fontWeight='bold' color="#58595b">Hospital's Phone Number</Typography>
                                 <Box display='flex' alignItems='baseline' sx={{ flexDirection: 'column' }}>
-                                    <Typography color="#58595b">6026332180</Typography>
+                                    <Typography color="#58595b">{HospitalDetails.phone2}</Typography>
                                 </Box>
                             </Box>
                         </Box>
                         <Box display='none' width='100%' borderTop='0.2px #B0B0B0 solid'></Box>
                         <Box paddingX={3} paddingBottom={2} display='flex' component="a"
-                            href={`tel: 18003454325`} sx={{ cursor: "pointer", '&:hover': { color: 'black' } }}>
+                            href={`tel: ${HospitalDetails.phone}`} sx={{ cursor: "pointer", '&:hover': { color: 'black' } }}>
                             <Box
                                 sx={{
                                     width: 70,
@@ -235,7 +235,7 @@ const ContactPage = () => {
                                 <Box display='flex' alignItems='baseline' sx={{ flexDirection: 'column' }}>
                                     {/* <Typography fontWeight='bold' color="#58595b">Phone Number</Typography> */}
                                     <Typography color="#58595b" fontWeight='bold' marginRight={1}>Call Us Toll Free</Typography>
-                                    <Typography color="#58595b">18003454325</Typography>
+                                    <Typography color="#58595b">{HospitalDetails.phone}</Typography>
                                 </Box>
                                 <Typography color="#58595b" fontWeight='bold' fontSize={12}>(9:00 AM to 5:00 PM IST, Monday to Saturday)</Typography>
                             </Box>
