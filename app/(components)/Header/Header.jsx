@@ -17,9 +17,11 @@ import ScrollNav from '../ScrollNav';
 import { useSelector } from "react-redux";
 import { selectHospitalDetails } from "@/redux/features/hospitalDetailSlice";
 import { selectHospitals } from "@/redux/features/hospitalSlice";
+import { selectFacilities } from "@/redux/features/facilitiesSlice";
 
-const Header = ({ Facilities }) => {
+const Header = () => {
     const OurHospitals = useSelector(selectHospitals)
+    const Facilities = useSelector(selectFacilities);
     const HospitalDetails = useSelector(selectHospitalDetails);
     const [open, setOpen] = useState(false);
     const [hydrated, setHydrated] = useState(false);

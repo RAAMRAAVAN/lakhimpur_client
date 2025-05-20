@@ -112,7 +112,7 @@ export default function Navbar({ Title, OurHospitals, Facilities }) {
                       case "Facilities":
                         return (
                           // <FacilitiesDropdown item={item} Facilities={Facilities}/>
-                          <Box key={item.name}>
+                          <Box key={item.id}>
                             <Button
                               sx={{ color: NavElements }}
                               onClick={handleFacilitiesClick}
@@ -131,12 +131,12 @@ export default function Navbar({ Title, OurHospitals, Facilities }) {
                                 Facilities.map((facility) => (
                                   <Link
                                     key={facility.id}
-                                    href={`/facilities#${facility._id}`}
+                                    href={`/facilities#${facility.id}`}
                                     passHref
                                     legacyBehavior
                                   >
-                                    <MenuItem key={facility.name || facility.title} onClick={handleFacilitiesClose}>
-                                      <Typography >{facility.title}</Typography>
+                                    <MenuItem key={facility.id} onClick={handleFacilitiesClose}>
+                                      <Typography >{facility.name}</Typography>
                                     </MenuItem></Link>
                                 ))
                               ) : (

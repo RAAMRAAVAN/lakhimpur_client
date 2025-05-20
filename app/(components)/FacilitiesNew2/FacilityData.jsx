@@ -34,7 +34,7 @@ const Facilities = ({ expand, FID }) => {
       {facilities.map((facility, index) => (
         <Box
           key={facility.id}
-          id={facility._id}
+          id={facility.id}
           marginBottom={2}
           display="flex"
           flexDirection="column"
@@ -79,14 +79,14 @@ const Facilities = ({ expand, FID }) => {
             >
               <Typography
                 variant="h5"
-                id={`facility-title-${facility._id}`}
+                id={`facility-title-${facility.id}`}
                 sx={{
                   fontSize: { xs: "18px", md: "24px" },
                   fontWeight: "bold",
                   padding: { xs: 2, md: 3 }
                 }}
               >
-                {facility.title}
+                {facility.name}
               </Typography>
               <Box
                 display="flex"
@@ -123,7 +123,7 @@ const Facilities = ({ expand, FID }) => {
 
                 >
                   <ExportedImage
-                    src={`/${facility.path}`}
+                    src={`https://accf-api.cancercareinstituteguwahati.org/storage/${facility.photo}`}
                     alt="img"
                     className={isMd ? "facility-image" : ""}
                     width={400}
@@ -139,7 +139,7 @@ const Facilities = ({ expand, FID }) => {
                   />
                 </Box>
                 <Box sx={{marginX:{xs:0,md:2}}}>
-                  {FID === facility._id ? <><Box display='none'></Box><ReadMoreText ShortText={facility.long_description} LongText={facility.description} Expand={true} ReadMoreOption={facility.read_more2} showReadmore={facility.read_more2} scrollBack={`facility-title-${facility._id}`}/></> : <><ReadMoreText ShortText={facility.long_description} LongText={facility.description} Expand={false} ReadMoreOption={facility.read_more2} showReadmore={facility.read_more2} scrollBack={`facility-title-${facility._id}`}/></>}
+                  {FID === facility.id ? <><Box display='none'></Box><ReadMoreText ShortText={facility.long_description} LongText={facility.description} Expand={true} ReadMoreOption={facility.read_more2} showReadmore={facility.read_more2} scrollBack={`facility-title-${facility._id}`}/></> : <><ReadMoreText ShortText={facility.long_description} LongText={facility.description} Expand={false} ReadMoreOption={facility.read_more2} showReadmore={facility.read_more2} scrollBack={`facility-title-${facility.id}`}/></>}
                 </Box>
               </Box>
             </Grid>

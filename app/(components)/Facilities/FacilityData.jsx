@@ -34,7 +34,7 @@ const Facilities = () => {
             {facilities.map((facility, index) => (
                 <Box
                     key={facility.id}
-                    id={facility._id}
+                    id={facility.id}
                     marginBottom={2}
                     display="flex"
                     width="100%"
@@ -71,7 +71,7 @@ const Facilities = () => {
                                 }}
                             >
                                 <ExportedImage
-                                    src={`/${facility.path}`}
+                                    src={`https://accf-api.cancercareinstituteguwahati.org/storage/${facility.photo}`}
                                     alt='img'
                                     className="facility-image"
                                     fill
@@ -100,7 +100,7 @@ const Facilities = () => {
                             }}
                         >
                             <Typography variant="h6" sx={{"&:hover":{color: color3}, fontWeight:'bold'}}>
-                                {facility.title}
+                                {facility.name}
                             </Typography>
                             <Box
                                 display="flex"
@@ -122,7 +122,7 @@ const Facilities = () => {
                             <Typography  sx={{ fontSize: { xs: "14px", md: "16px" },whiteSpace: "pre-line", overflow:'hidden' }}>
                                 {facility.short_description}
                             </Typography>
-                            {facility.read_more ? <Box sx={{ display: "flex", marginTop: "auto" }} onClick={() => router.push(`/facilities?expand=true#${facility._id}`)}>
+                            {facility.read_more ? <Box sx={{ display: "flex", marginTop: "auto" }} onClick={() => router.push(`/facilities?expand=true#${facility.id}`)}>
                                 <Button aria-label="Submit Form" sx={{color: color3}}>Read More</Button>
                             </Box> : <></>}
                         </Grid>

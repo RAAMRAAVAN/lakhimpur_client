@@ -1,14 +1,36 @@
+'use client'
 import { Box, Typography } from "@mui/material";
 import ExportedImage from "next-image-export-optimizer";
 import Entries from "./entries";
 // import { API, Font, HName } from "@/app/(components)/Global";
-import { FetchAboutUs, HName} from "@/lib/fetchData";
+import { FetchAboutUs, FetchAboutUs2, HName } from "@/lib/fetchData";
 import OurHospitalsPage from "@/app/(components)/Hospitals/OurHospitalsPage";
 import ModelofCare from "@/app/(components)/ModelofCare/ModelofCare";
+import Loader from "@/app/(components)/Loader";
+import { useEffect, useState } from "react";
 
-const page = async () => {
+const page = () => {
     const HoName = HName;
-    const Entris = FetchAboutUs;
+
+    const [about, setAbout] = useState([]);
+
+    const fetchAboutUs = async () => {
+        // setLoading2(true);
+        try {
+            const data = await FetchAboutUs2();
+            // if(data?.leng)
+            setAbout(data)
+        } catch (error) {
+            console.error("Error fetching hospital data:", error);
+        } finally {
+            // setLoading2(false);
+        }
+    };
+    useEffect(() => {
+        fetchAboutUs();
+    }, [])
+
+    if(about.length > 0)
     return (<>
         {/* <ModelofCare/> */}
         <Box display="flex" sx={{ position: "relative", overflow: "hidden" }} width="100%" height="350px">
@@ -34,7 +56,7 @@ const page = async () => {
                 }}
 
             >
-                <Typography  variant="h4" fontWeight="bold" textshadow="2px 2px 10px rgba(0,0,0,0.5)" paddingX={3}>
+                <Typography variant="h4" fontWeight="bold" textshadow="2px 2px 10px rgba(0,0,0,0.5)" paddingX={3}>
                     ABOUT US
                 </Typography>
             </Box>
@@ -47,8 +69,10 @@ const page = async () => {
             </Box>
         </Box>
         <Box sx={{ padding: { md: 4, sm: 1 }, marginX: 1 }}>
-            <Entries entries={Entris} />
+            <Entries entries={about} />
         </Box>
     </>)
+    else
+    return(<Loader/>)
 }
 export default page;

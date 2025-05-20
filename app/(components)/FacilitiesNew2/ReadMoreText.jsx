@@ -21,7 +21,7 @@ const ReadMoreText = ({ ShortText, LongText, ReadMoreOption, scrollBack, showRea
         {expand ? LongText : ShortText}
       </Typography>
 
-      {ReadMoreOption && (
+      {ReadMoreOption? (
         <>
           {!expand ? (
             <Button sx={{ m: 1 }} onClick={() => setExpand(true)}>
@@ -33,7 +33,7 @@ const ReadMoreText = ({ ShortText, LongText, ReadMoreOption, scrollBack, showRea
             </Button>
           )}
         </>
-      )}
+      ): <></>}
     </>
   );
 };

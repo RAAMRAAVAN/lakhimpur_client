@@ -10,7 +10,7 @@ const Entries = (props) => {
     <Box display="flex" flexDirection="column" width="100%" >
       {entries.map((entry, index) => (
         <Grid
-          key={entry.title}
+          key={entry.id}
           container
           width="100%"
           sx={{
@@ -41,7 +41,7 @@ const Entries = (props) => {
             }}
             >
               <ExportedImage
-                src={`/${entry.path}`}
+                src={`https://accf-api.cancercareinstituteguwahati.org/storage/${entry.photo}`}
                 // src='/Doctors'
                 alt="img"
                 width={400}
@@ -57,7 +57,7 @@ const Entries = (props) => {
               />
             </Box>
             <Typography id={`AboutTitle${entry.id}`} variant="h5" fontWeight="bold" marginBottom={1} padding={1} >
-              {entry.title}
+              {entry.name}
             </Typography>
             {/* <ReadMoreText text={entry.description} lineClamp={8}/> */}
             <ReadMoreText scrollBack={`AboutTitle${entry.id}`} ShortText={entry.short_description} LongText={entry.description} Expand={false} ReadMoreOption={entry.read_more2}/>

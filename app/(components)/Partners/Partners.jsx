@@ -1,13 +1,34 @@
 'use client'
-import { FetchPartners } from "@/lib/fetchData";
+import { FetchPartners2 } from "@/lib/fetchData";
 import { Box, Grid } from "@mui/material";
 import ExportedImage from "next-image-export-optimizer";
 import { color1, color4 } from "../Global";
 import ScrollReveal from "../Animation/ScrollReveal";
+import { useEffect, useState } from "react";
+import Loader from "../Loader";
 
 const Partners = () => {
-    const Partners = FetchPartners;
+    // const partners = FetchPartners;
+    const [Partners, setPartners] = useState([]);
 
+    const fetchPartners = async () => {
+            // setLoading2(true);
+            try {
+                const data = await FetchPartners2();
+                // if(data?.leng)
+                setPartners(data)
+            } catch (error) {
+                console.error("Error fetching hospital data:", error);
+            } finally {
+                // setLoading2(false);
+            }
+        };
+    useEffect(()=>{
+        fetchPartners();
+    }, [])
+
+    console.log("Partners=",Partners)
+    if(Partners.length > 0)
     return (
         <Grid container alignItems="center" spacing={1}>
             {Partners.map((partner) => (
@@ -25,7 +46,7 @@ const Partners = () => {
                     width='100%'
                 >
                     <ScrollReveal animation="grow" display="flex" sx={{}}>
-                    <Box display='flex' backgroundColor='white' width='100%' paddingY={1} border={`1px solid ${color1}`} onClick={() => window.open(partner.path, '_blank')} sx={{
+                    <Box display='flex' backgroundColor='white' width='100%' paddingY={1} border={`1px solid ${color1}`} onClick={() => window.open('/', '_blank')} sx={{
                             transition: 'transform 0.3s ease',
                             cursor: 'pointer', '&:hover': {
                                 transform: 'scale(1.02)'
@@ -37,7 +58,7 @@ const Partners = () => {
                             // border={`1px solid ${color1}`}
                         >
                             <ExportedImage
-                                src={partner.partner_image}
+                                src={`https://accf-api.cancercareinstituteguwahati.org/storage/${partner.photo}`}
                                 alt="partner logo"
                                 fill
                                 style={{ objectFit: "contain" }}
@@ -51,6 +72,8 @@ const Partners = () => {
             ))}
         </Grid>
     );
+    else
+    return(<Loader/>)
 };
 
 export default Partners;

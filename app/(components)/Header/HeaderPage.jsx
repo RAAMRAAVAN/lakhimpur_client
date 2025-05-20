@@ -1,6 +1,6 @@
 'use client'
 import Header from './Header'
-import { fetchDoctors2, FetchFacilitiesData, FetchHospitalDetails, FetchHospitalsData2, fetchNewsAndEvents2, ImageSliderData } from "@/lib/fetchData";
+import { fetchDoctors2, FetchFacilitiesData2, FetchHospitalDetails, FetchHospitalsData2, fetchNewsAndEvents2, ImageSliderData } from "@/lib/fetchData";
 import APICalls from './APICalls';
 import { setDoctors } from "@/redux/features/doctorSlice";
 import { useEffect, useState } from 'react';
@@ -8,11 +8,10 @@ import { useDispatch } from 'react-redux';
 import { setNewses } from '@/redux/features/newsSlice';
 import { setHospitalDetails } from '@/redux/features/hospitalDetailSlice';
 import { setHospitals } from '@/redux/features/hospitalSlice';
+import { setFacilities } from '@/redux/features/facilitiesSlice';
 
 const HeaderPage = () => {
     const dispatch = useDispatch();
-    const Facilities = FetchFacilitiesData;
-    // const HospitalDetails = FetchHospitalDetails;
     const fetchDoctorDetails = async () => {
         // setLoading1(true);
         try {
@@ -66,21 +65,33 @@ const HeaderPage = () => {
         }
     };
 
-    
+    const fetchFacilities = async () => {
+        // setLoading2(true);
+        try {
+            const data = await FetchFacilitiesData2();
+            // if(data?.leng)
+                dispatch(setFacilities(data))
+        } catch (error) {
+            console.error("Error fetching hospital data:", error);
+        } finally {
+            // setLoading2(false);
+        }
+    };
+    // FetchFacilitiesData2
     
     useEffect(() => {
         fetchDoctorDetails();
         fetchNewsDetails();
         fetchHospitalDetails();
         fetchHospitals();
-        // fetchImageSlider();
+        fetchFacilities();
     }, []);
 
     // console.log("Client API's", Doctors, news);
 
     return (<>
-    <APICalls Facilities={Facilities}/>
-    <Header Facilities={Facilities}/>
+    <APICalls/>
+    <Header/>
     </>);
 }
 

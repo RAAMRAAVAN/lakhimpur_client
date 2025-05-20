@@ -65,12 +65,12 @@ const Footer = () => {
                     <Typography  variant="h6" mb={1}>Facilities</Typography>
                     <Grid container spacing={1}>
                         {facilityList.map((facility, index) => (
-                            <Grid item xs={6} key={facility._id || index} sx={{
+                            <Grid item xs={6} key={facility.id || index} sx={{
                                 cursor: 'pointer', '&:hover': {
                                     // transform: 'scale(1.05)'
                                 }
                             }} onClick={() => router.push(`/facilities#${facility._id}`)}>
-                                <RenderListItem text={facility.title} />
+                                <RenderListItem text={facility.name} />
                             </Grid>
                         ))}
                     </Grid>

@@ -144,12 +144,13 @@ export default function NewsLink() {
             >
               <Box display="flex" width="100%">
                 {/* Uncomment if needed */}
-                <CardMedia
+                {entry.photos ? <CardMedia
                   component="img"
                   sx={{ height: '175px', width: '100%' }}
                   image={`https://accf-api.cancercareinstituteguwahati.org/storage/${entry.photos[0].photo_path}`}
                   alt={entry.name}
-                />
+                /> : <></>}
+
               </Box>
               <CardContent>
                 <Typography
