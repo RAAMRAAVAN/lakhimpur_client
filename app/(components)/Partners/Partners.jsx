@@ -46,7 +46,7 @@ const Partners = () => {
                     width='100%'
                 >
                     <ScrollReveal animation="grow" display="flex" sx={{}}>
-                    <Box display='flex' backgroundColor='white' width='100%' paddingY={1} border={`1px solid ${color1}`} onClick={() => window.open('/', '_blank')} sx={{
+                    <Box display='flex' backgroundColor='white' width='100%' paddingY={1} border={`1px solid ${color1}`} onClick={() => window.open(partner.link, '_blank')} sx={{
                             transition: 'transform 0.3s ease',
                             cursor: 'pointer', '&:hover': {
                                 transform: 'scale(1.02)'
