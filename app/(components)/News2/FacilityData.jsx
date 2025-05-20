@@ -90,7 +90,7 @@ const Facilities = ({ expand, FID }) => {
               }}
             // border='1px black solid'
             >
-              <ImageSlider id={news.id} Images={news.newseventsimg} />
+              <ImageSlider id={news.id} Images={news.photos} />
             </Box>
             <Box sx={{ marginX: 2, marginY: 1 }}>
               <Typography
@@ -101,10 +101,10 @@ const Facilities = ({ expand, FID }) => {
                   fontWeight: "bold",
                 }}
               >
-                {news.content_heading}
+                {news.name}
               </Typography>
-              <Typography variant="subtitle1" marginY={1} color="gray" fontSize={18}>{formatDateToReadable(news.news_event_date)}</Typography>
-              {FID === news.id ? <><Box display='none'></Box><ReadMoreText ShortText={news.content} LongText={news.content} Expand={true} ReadMoreOption={false} showReadmore={false} scrollBack={`facility-title-${news.id}`} /></> : <><ReadMoreText ShortText={news.content} LongText={news.content} Expand={false} ReadMoreOption={false} showReadmore={false} scrollBack={`facility-title-${news.id}`} /></>}
+              <Typography variant="subtitle1" marginY={1} color="gray" fontSize={18}>{formatDateToReadable(news.date)}</Typography>
+              {FID === news.id ? <><Box display='none'></Box><ReadMoreText ShortText={news.details} LongText={news.details} Expand={true} ReadMoreOption={false} showReadmore={false} scrollBack={`facility-title-${news.id}`} /></> : <><ReadMoreText ShortText={news.details} LongText={news.details} Expand={false} ReadMoreOption={false} showReadmore={false} scrollBack={`facility-title-${news.id}`} /></>}
             </Box>
           </Box>
         </Box>

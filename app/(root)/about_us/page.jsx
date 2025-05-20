@@ -13,7 +13,7 @@ const page = async () => {
         {/* <ModelofCare/> */}
         <Box display="flex" sx={{ position: "relative", overflow: "hidden" }} width="100%" height="350px">
             <ExportedImage
-                src={`${HName}/about/about_us.jpg`}
+                src={`${HName}/about/try_about.jpg`}
                 alt="background"
                 fill
                 style={{ objectFit: "cover" }}

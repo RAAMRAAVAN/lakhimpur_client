@@ -104,7 +104,7 @@ export const FetchFacilitiesData = [{
   "read_more2": false,
   "read_more": true,
   "description": "Medical Oncology is a branch of medicine that specializes in the diagnosis and treatment of cancer. It is a super-specialty field where Medical Oncologists treat various types of cancer using medications, including chemotherapy, immunotherapy, targeted therapy, and hormone therapy.\n\nThe center has a dedicated daycare setup with modern Chemo Daycare wards.\n\nThe department operates a dedicated OPD service every day, along with daycare services for chemotherapy. In addition, the department has a long-term chemotherapy ward for hospitalized patients, supportive care wards, an isolation block for neutropenic patients, and hemato-oncology services.",
-  "path": "Lakhimpur/Facilities/1.jpg",
+  "path": "Lakhimpur/Facilities/1_1.jpg",
   "Loader": "#0076bd",
   "color1": "#cbdae54",
   "color2": "#ced0d51",
@@ -196,7 +196,7 @@ export const FetchFacilitiesData = [{
   "read_more2": false,
   "read_more": true,
   "description": "The institute is equipped with an advanced unit with Histopathology with routine Pathology, Biochemistry etc. \n\nEquipped with the state of art Autopack 300, Fuji dri-chem series and XN 330 hematology analyzer, we strive to adhere to the Good Laboratory Practices to provide accurate and reliable laboratory results to our patients.",
-  "path": "Lakhimpur/Facilities/6.jpg",
+  "path": "Lakhimpur/Facilities/Lab2.jpg",
   "Loader": "#0076bd",
   "color1": "#cbdae54",
   "color2": "#ced0d2",
@@ -385,12 +385,12 @@ export const FetchAboutUs = [
 export async function fetchNewsAndEvents2() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   try {
-    const response = await fetch(`https://barpetacancercentre.org/api/get-news-events-for-center`, {
+    const response = await fetch(`https://accf-api.cancercareinstituteguwahati.org/api/get-news-events-for-center`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ccode: "Lakhimpur" }),
+      body: JSON.stringify({ "hospitalId": HospitalID }),
       next: { revalidate: 900 },
       // cache: "no-store",
     });
